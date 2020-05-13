@@ -1,7 +1,7 @@
 import os
 import discord
 
-client = discord.client()
+client = discord.Client()
 
 @client.event
 async def on_ready():
@@ -12,4 +12,7 @@ async def on_message(message):
     if message.content.startswith('$ping'):
         await message.channel.send("Pong!")
 
+token : str = os.environ['BOT_TOKEN']
+
+print(f"Token: {token}")
 client.run(os.environ['BOT_TOKEN'])
