@@ -25,10 +25,10 @@ async def respond_to_command(message):
     arguments = " ".join(message_words[1:])
 
     if(command == "ping"):
-        await message.channel.send("Pong!")
+        await message.channel.send("Ponga!")
 
     elif(command == "eval"):
-        if discord.Message().author.id in authorized_users:
+        if message.author.id in authorized_users:
             await message.channel.send(eval(arguments))
 
 client.run(os.environ.get('BOT_TOKEN'))
