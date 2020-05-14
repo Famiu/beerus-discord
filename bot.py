@@ -12,7 +12,5 @@ async def on_message(message):
     if message.content.startswith('$ping'):
         await message.channel.send("Pong!")
 
-token : str = os.environ['BOT_TOKEN']
-
-print(f"Token: {token}")
-client.run(os.environ['BOT_TOKEN'])
+client.run(os.environ.get('BOT_TOKEN'))
+print("Bot initialized with token: {0}".format(os.environ.get('BOT_TOKEN')))
