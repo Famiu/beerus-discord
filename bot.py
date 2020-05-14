@@ -28,6 +28,8 @@ async def respond_to_command(message):
         await message.channel.send("Ponga!")
 
     elif(command == "eval"):
+        print(message.author.id)
+
         if message.author.id in authorized_users:
             await message.channel.send(eval(arguments))
 
