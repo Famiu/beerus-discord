@@ -19,7 +19,7 @@ async def on_message(message):
         await respond_to_command(message)
 
 async def respond_to_command(message):
-    message_words = message.split()
+    message_words = message.content.split()
     command = message_words[0][1:]
     arguments = " ".join(message_words[1:])
 
