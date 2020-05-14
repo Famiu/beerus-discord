@@ -16,7 +16,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.content.startswith(guildprefix.get(message.guild.id, "~")):
-        respond_to_command(message)
+        await respond_to_command(message)
 
 async def respond_to_command(message):
     message_words = message.split()
