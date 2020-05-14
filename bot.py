@@ -1,5 +1,13 @@
 import os
 import discord
+import logging
+
+# Log all Discord logs to file discord.log
+logger = logging.getLogger('discord')
+logger.setLevel(logging.DEBUG)
+handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
+handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+logger.addHandler(handler)
 
 client = discord.Client()
 
@@ -13,4 +21,3 @@ async def on_message(message):
         await message.channel.send("Pong!")
 
 client.run(os.environ.get('BOT_TOKEN'))
-print("Bot initialized with token: {0}".format(os.environ.get('BOT_TOKEN')))
