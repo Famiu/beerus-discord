@@ -7,7 +7,7 @@ logger = logging.getLogger('discord')
 
 client = discord.Client()
 
-authorized_users = [710113988675108894]
+authorized_users = [244275194070433795]
 guildprefix = {}
 
 @client.event
@@ -28,6 +28,8 @@ async def respond_to_command(message):
         await message.channel.send("Ponga!")
 
     elif(command == "eval"):
+        print(message.author.id)
+       
         if message.author.id in authorized_users:
             await message.channel.send(eval(arguments))
 
