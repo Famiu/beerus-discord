@@ -7,6 +7,7 @@ logger = logging.getLogger('discord')
 
 client = discord.Client()
 
+authorized_users = [710113988675108894]
 guildprefix = {}
 
 @client.event
@@ -27,6 +28,7 @@ async def respond_to_command(message):
         await message.channel.send("Pong!")
 
     elif(command == "eval"):
-        await message.channel.send(eval(arguments))
+        if discord.Message().author.id in authorized_users:
+            await message.channel.send(eval(arguments))
 
 client.run(os.environ.get('BOT_TOKEN'))
