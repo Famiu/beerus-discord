@@ -28,7 +28,7 @@ async def respond_to_command(message):
         await message.channel.send("Pong!")
 
     elif(command == "eval"):
-        if discord.Message().author.id in authorized_users:
+        if message.author.id in authorized_users:
             await message.channel.send(eval(arguments))
 
 client.run(os.environ.get('BOT_TOKEN'))
