@@ -25,7 +25,7 @@ async def respond_to_command(message):
     arguments = " ".join(message_words[1:])
 
     if(command == "ping"):
-        await message.channel.send("Ponga!")
+        await message.channel.send("Pong!")
 
     elif(command == "eval"):
         if message.author.id in authorized_users:
