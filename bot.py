@@ -9,6 +9,7 @@ client = discord.Client()
 
 authorized_users = [244275194070433795]
 guildprefix = {}
+defaultprefix = ("~" if (os.environ.get("IS_DEV", "False") == "True") else "!")
 
 @client.event
 async def on_ready():
@@ -16,7 +17,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith(guildprefix.get(message.guild.id, "~")):
+    if message.content.startswith(guildprefix.get(message.guild.id, defaultprefix)):
         await respond_to_command(message)
 
 async def respond_to_command(message):
